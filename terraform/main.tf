@@ -138,6 +138,7 @@ module "frontend" {
   project_name           = local.project_name # project name from local
   ec2_name               = "ubuntu"
   ec2_role               = "frontend-server"
+  instance_type          = "t3.medium"
   ami                    = data.aws_ami.ubuntu.id      # data source AMI
   key_name               = "lab9_tim"                  # SSH key name
   vpc_security_group_ids = [aws_security_group.web.id] # Pass security group IDs here

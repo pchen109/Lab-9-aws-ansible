@@ -9,5 +9,5 @@
     ansible_user: "{{ 'rocky' if 'server_role_redis_server' in group_names else 'ubuntu' }}"
   roles:
     - git
-    - docker
-    - services
+    # - docker
+    # - services
