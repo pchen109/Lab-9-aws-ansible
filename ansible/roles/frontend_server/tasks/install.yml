@@ -1,0 +1,7 @@
+---
+# Tasks for Frontend Servers
+- name: Install nginx on Ubuntu
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+  when: "'server_role_frontend_server' in group_names and ansible_facts['distribution'] == 'Ubuntu'"

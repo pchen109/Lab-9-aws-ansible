@@ -1,0 +1,9 @@
+---
+# Enable nginx configuration by creating a symlink
+- name: enable nginx configuration
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/default
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+  when: "'server_role_frontend_server' in group_names and ansible_facts['distribution'] == 'Ubuntu'"
+  notify: Reload nginx

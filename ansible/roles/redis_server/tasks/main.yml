@@ -1,0 +1,7 @@
+---
+# Tasks for Redis Servers
+- name: Install redis on Rocky Linux
+  ansible.builtin.dnf:
+    name: redis
+    state: present
+  when: "'server_role_redis_server' in group_names and ansible_facts['distribution'] == 'Rocky'"
