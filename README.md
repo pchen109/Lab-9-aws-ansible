@@ -3,7 +3,7 @@
 ## Results
 **Victory Screenshot**
 
-![Victory Screenshot](Frontend-Screenshot.png)
+![Victory Screenshot](server-img.png)
 
 ## General Setup
 1. **Clone the repository** to your local machine.
