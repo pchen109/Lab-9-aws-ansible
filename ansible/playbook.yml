@@ -8,5 +8,6 @@
     # Set remote_user conditionally for each server role
     ansible_user: "{{ 'rocky' if 'server_role_redis_server' in group_names else 'ubuntu' }}"
   roles:
-    - redis_server
-    - frontend_server  
+    - git
+    - docker
+    - services

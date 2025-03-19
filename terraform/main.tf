@@ -1,6 +1,6 @@
 # specify a project name
 locals {
-  project_name = "lab_week_11"
+  project_name = "lab_9_Tim"
 }
 
 # get the most recent ami for Ubuntu 24.04 owned by amazon
@@ -121,16 +121,16 @@ resource "aws_vpc_security_group_egress_rule" "web-egress" {
 # create the ec2 instance using a module
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 # rocky linux for redis
-module "redis" {
-  source                 = "./modules/web-server/"
-  project_name           = local.project_name # project name from local
-  ec2_name               = "rocky"
-  ec2_role               = "redis-server"
-  ami                    = "ami-093bd987f8e53e1f2"
-  key_name               = "aws-4640"                  # SSH key name
-  vpc_security_group_ids = [aws_security_group.web.id] # Pass security group IDs here
-  subnet_id              = aws_subnet.web.id           # Pass the subnet ID here
-}
+# module "redis" {
+#   source                 = "./modules/web-server/"
+#   project_name           = local.project_name # project name from local
+#   ec2_name               = "rocky"
+#   ec2_role               = "redis-server"
+#   ami                    = "ami-093bd987f8e53e1f2"
+#   key_name               = "lab9_tim"                  # SSH key name
+#   vpc_security_group_ids = [aws_security_group.web.id] # Pass security group IDs here
+#   subnet_id              = aws_subnet.web.id           # Pass the subnet ID here
+# }
 
 # ubuntu front end
 module "frontend" {
@@ -139,7 +139,7 @@ module "frontend" {
   ec2_name               = "ubuntu"
   ec2_role               = "frontend-server"
   ami                    = data.aws_ami.ubuntu.id      # data source AMI
-  key_name               = "aws-4640"                  # SSH key name
+  key_name               = "lab9_tim"                  # SSH key name
   vpc_security_group_ids = [aws_security_group.web.id] # Pass security group IDs here
   subnet_id              = aws_subnet.web.id           # Pass the subnet ID here
 }
@@ -149,7 +149,7 @@ output "frontend" {
   value       = module.frontend.instance_ip_addr
 }
 
-output "redis" {
-  description = "output for frontend ec2"
-  value       = module.redis.instance_ip_addr
-}
+# output "redis" {
+#   description = "output for frontend ec2"
+#   value       = module.redis.instance_ip_addr
+# }
