@@ -1,0 +1,8 @@
+---
+- name: Clone the repository from GitHub
+  ansible.builtin.git:
+    repo: 'git@github.com:pchen109/Lab-9.git'
+    dest: /path/to/destination/directory  # The directory where you want to clone the repo
+    clone: yes
+    update: yes
+  when: "'server_role_frontend_server' in group_names and ansible_facts['distribution'] == 'Ubuntu'"
