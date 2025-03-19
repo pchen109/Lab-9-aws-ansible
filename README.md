@@ -5,6 +5,10 @@
 
 ![Victory Screenshot](server-img.png)
 
+**File Structure**
+
+![File Sctruture](tree.png)
+
 ## General Setup
 1. **Clone the repository** to your local machine.
 2. **Ensure you have the following installed and setup**:
