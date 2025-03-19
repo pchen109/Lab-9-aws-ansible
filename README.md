@@ -40,14 +40,6 @@
     rm $HOME/.ssh/aws
     rm $HOME/.ssh/aws.pub
     ```
-3. **Delete AMI**
-    1. Log in to AWS
-    2. Navigate to AMI under EC2
-    3. Deregister the AMI with the name "packer-ansible-nginx"
-4. **Delete Snapshots**
-    1. Log in to AWS
-    2. Navigate to Snapshot under EC2
-    3. Delete the snapshots created recently
 
 ## Note
 - You can run this command to apply changes to the instances if you modify any files in the Ansible folder after executing terraform apply.
